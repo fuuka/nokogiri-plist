@@ -4,6 +4,10 @@ module NokogiriPList
 
   class Generator
 
+    def self.inspect
+      'NokogiriPList::Generator'
+    end
+
     def self.indent_size
       2
     end
