@@ -60,7 +60,7 @@ module NokogiriPList
         new_line = (["array", "dict"].include? name) ? "\n" : ""
         closing_tag_indent = (new_line != "\n") ? 0 : current_indent
         indent(current_indent) + "<#{name}>" + new_line +
-        (block_given? ? yield : content).to_s +
+        (block_given? ? yield : CGI.escapeHTML(content.to_s)).to_s +
         indent(closing_tag_indent) + "</#{name}>\n"
       else
         indent(current_indent) + "<#{name}/>\n"
